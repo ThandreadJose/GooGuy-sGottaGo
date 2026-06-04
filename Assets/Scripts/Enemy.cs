@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Enemy : MonoBehaviour
 {
@@ -19,6 +20,12 @@ public class Enemy : MonoBehaviour
     public GameObject body;
     public GameObject arm;
     public GameObject missile;
+    private SpriteRenderer bSprite;
+
+
+    //This will control what is being aimed
+    private GameObject lead;
+    private int side; // 0 = left 1 = right
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,9 +35,19 @@ public class Enemy : MonoBehaviour
         maxShots = numberOfShots;
         ranged = true;
 
+        bSprite = body.GetComponent<SpriteRenderer>();
+
         if (bullet == null)
         {
             ranged = false;
+        }
+        if (missile != null)
+        {
+            lead = missile;
+        }
+        else
+        {
+            lead = enemyObject;
         }
     }
 
@@ -38,23 +55,20 @@ public class Enemy : MonoBehaviour
     {
         if (ranged == true)
         {
-            enemyObject.transform.up = player.transform.position - enemyObject.transform.position;
+            lead.transform.up = player.transform.position - enemyObject.transform.position;
         }
         else
         {
             if (player.transform.position.x > enemyObject.transform.position.x)
             {
-                enemyObject.transform.rotation = Quaternion.identity;
-
-                enemyObject.transform.Rotate(0,0,-45);
-
+                bSprite.flipX = true;
+                side = 0;
             }
             if (player.transform.position.x < enemyObject.transform.position.x)
             {
-                enemyObject.transform.rotation = Quaternion.identity;
-
-                enemyObject.transform.Rotate(0, 0, 45);
-
+                bSprite.flipX = false;
+                side = 1;
+                lead.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
             }
         }
 
@@ -65,7 +79,7 @@ public class Enemy : MonoBehaviour
         if (ranged == true)
         {
             bulletClone = Instantiate(bullet, enemyObject.transform.position, enemyObject.transform.rotation);
-            bulletClone.transform.up = enemyObject.transform.up;
+            bulletClone.transform.up = lead.transform.up;
             numberOfShots -= 1;
             if (missile != null)
             {
@@ -81,7 +95,15 @@ public class Enemy : MonoBehaviour
         }
         if (!ranged)
         {
-
+            
+            if (side == 0)
+            {
+                lead.transform.rotation = Quaternion.Euler(0f, 0f, -45);
+            }
+            if (side == 1)
+            {
+                lead.transform.rotation = Quaternion.Euler(0f, 0f, 45);
+            }
             float speed = 2f;
             rb.AddForce(enemyObject.transform.up * speed,ForceMode2D.Impulse);
             numberOfShots -= 1;
@@ -92,6 +114,7 @@ public class Enemy : MonoBehaviour
 
 
             }
+            lead.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
 
     }
@@ -130,6 +153,8 @@ public class Enemy : MonoBehaviour
         if (lockOn == false)
         {
             float speed = 2f;
+            if (missile != null)
+            { missile.SetActive(true); }
             if (arm != null)
             {
                 if (arm.transform.localPosition.y >= 0.5f)
@@ -161,7 +186,7 @@ public class Enemy : MonoBehaviour
                 
             }
 
-            enemyObject.transform.rotation = Quaternion.Euler(0f, 0f, nmeObj.z);
+            lead.transform.rotation = Quaternion.Euler(0f, 0f, nmeObj.z);
         }
         
     }
@@ -177,6 +202,7 @@ public class Enemy : MonoBehaviour
 
         }
     }
+
 
     void OnTriggerExit2D(Collider2D other)
     {

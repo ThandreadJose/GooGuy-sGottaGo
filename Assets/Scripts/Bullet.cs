@@ -17,6 +17,7 @@ public class Bullet : MonoBehaviour
     public SpriteRenderer activeBack;
     private int spriteStep;
     private float timer;
+    private bool ranged;
 
     public float speed;
     public int health;
@@ -29,10 +30,15 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        bullet = this.gameObject;
-        rb.AddForce((bullet.transform.up * speed));
-        spriteStep = 0;
-        timer = 0.1f;
+
+        if (CompareTag("Bullet"))
+        {
+            bullet = this.gameObject;
+            rb.AddForce((bullet.transform.up * speed));
+            spriteStep = 0;
+            timer = 0.1f;
+            ranged = true;
+        }
         
     }
 
@@ -61,17 +67,20 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
-        bullet.transform.up = rb.linearVelocity;
-        if (timer < 0)
+        if (ranged)
         {
+            timer -= Time.deltaTime;
+            bullet.transform.up = rb.linearVelocity;
+            if (timer < 0)
+            {
 
-            ShuffleSprite();
-        }
+                ShuffleSprite();
+            }
 
-        if (health <= 0)
-        {
-            DestroyImmediate(bullet);
+            if (health <= 0)
+            {
+                DestroyImmediate(bullet);
+            }
         }
 
     }
@@ -79,8 +88,10 @@ public class Bullet : MonoBehaviour
     {
         if (other.CompareTag("Floor"))
         {
-            health -= 1;
-
+            if (ranged)
+            {
+                health -= 1;
+            }
         }
         if (other.CompareTag("Player"))
         {
