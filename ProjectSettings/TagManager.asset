@@ -8,6 +8,7 @@ TagManager:
   - Boost
   - Checkpoint
   - Floor
+  - Bullet
   layers:
   - Default
   - TransparentFX

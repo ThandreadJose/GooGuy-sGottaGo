@@ -30,7 +30,9 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI coinNum;
     public TextMeshProUGUI livesText;
     private Vector2 checkPoint;
-
+    //Below will be the Power checker, it checks if what power is currently active, I honeslty think for now that just having a strings would work. The two I should do is "sticky" and "additional jumps"
+    private string[] powers;
+    [SerializeField] private PowerUp activePU;
 
 
     public int lives;
@@ -49,6 +51,7 @@ public class GameManager : MonoBehaviour
     private Vector3 newPos;
     //This is going to be for the number of jumps 
     public int numJumps;
+    public int maxJumps;
     public GameObject jumpCanvas;
     public TextMeshProUGUI numOJ;
     public float numberTimer;
@@ -58,6 +61,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        maxJumps = 3;
         timeleft = 0;
         numberTimer = 0;
         coins = 0;
@@ -84,6 +88,13 @@ public class GameManager : MonoBehaviour
         getReadyScreen.SetActive(true);
         timeleft = 3;
 
+    }
+
+    public void ChangePower(PowerUp power)
+    {
+        activePU.newState("DEACTIVE");
+        activePU = power;
+        activePU.Activate();
     }
 
     public void RespawnPlayer()
@@ -280,7 +291,7 @@ public class GameManager : MonoBehaviour
 
             }
 
-            numJumps = 3;
+            numJumps = maxJumps;
 
 
         }

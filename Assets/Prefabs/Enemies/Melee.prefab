@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 776557269324464531}
-  - component: {fileID: 4245420366347860185}
   - component: {fileID: 5130028822533103332}
   - component: {fileID: 8135104613702285998}
   - component: {fileID: 4485097364252731441}
+  - component: {fileID: 6329826777805619291}
   m_Layer: 0
   m_Name: Melee
   m_TagString: Untagged
@@ -36,27 +36,6 @@ Transform:
   - {fileID: 1213620614858876804}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1.106}
---- !u!114 &4245420366347860185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6446697774057361673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d00250547208f94e848e56c7d57f802, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  enemyObject: {fileID: 6446697774057361673}
-  colliderNME: {fileID: 6923474909580584079}
-  bullet: {fileID: 0}
-  cooldown: 2
-  numberOfShots: 1
-  rb: {fileID: 8135104613702285998}
-  body: {fileID: 6522719694558689593}
-  arm: {fileID: 0}
-  missile: {fileID: 0}
 --- !u!58 &5130028822533103332
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -156,6 +135,25 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.34
+--- !u!114 &6329826777805619291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6446697774057361673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c7d3a497db8e4645b74c59f5ef58889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Melee
+  enemyObject: {fileID: 6446697774057361673}
+  bullet: {fileID: 6446697774057361673}
+  cooldown: 5
+  numberOfShots: 1
+  rb: {fileID: 8135104613702285998}
+  body: {fileID: 6522719694558689593}
+  lead: {fileID: 6446697774057361673}
 --- !u!1 &6522719694558689593
 GameObject:
   m_ObjectHideFlags: 0
