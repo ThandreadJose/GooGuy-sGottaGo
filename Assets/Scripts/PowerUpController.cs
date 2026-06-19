@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem.Controls;
+using System.Collections.Generic;
 
 public class PowerUpController : MonoBehaviour
 
@@ -10,7 +11,7 @@ public class PowerUpController : MonoBehaviour
     protected string state = "NONE";
     protected bool active = false;
     private Power activePower;
-    private Power[] powerList;
+    private List<Power> powerList;
 
     //this will be called first to change stats like number of jumps or hp (idk yet)
     public virtual void updateStats(int maxJ, int uForce)
@@ -19,6 +20,17 @@ public class PowerUpController : MonoBehaviour
         gameManager.force = uForce;
         
     }
+
+
+    //this will add the power to the list of powers.
+    public void addPower(Power newPower)
+    {
+        activePower = newPower;
+        powerList.Add(newPower);
+    }
+
+
+
     //this will update the state of the power, like controlling when it is doing its thing and when it is used up.
     public virtual void newState(string newstate)
     {

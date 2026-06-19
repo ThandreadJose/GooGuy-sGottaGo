@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     private Vector2 checkPoint;
     //Below will be the Power checker, it checks if what power is currently active, I honeslty think for now that just having a strings would work. The two I should do is "sticky" and "additional jumps"
     private string[] powers;
-    [SerializeField] private PowerUp activePU;
+    //[SerializeField] private PowerUp activePU;
 
 
     public int lives;
@@ -90,12 +90,12 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void ChangePower(PowerUp power)
-    {
-        activePU.newState("DEACTIVE");
-        activePU = power;
-        activePU.Activate();
-    }
+    //public void ChangePower(PowerUp power)
+    //{
+    //    activePU.newState("DEACTIVE");
+    //    activePU = power;
+    //    activePU.Activate();
+    //}
 
     public void RespawnPlayer()
     {
