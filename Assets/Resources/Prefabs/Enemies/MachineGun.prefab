@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4893974077037638549
+--- !u!1 &386923924522421098
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5089008337290792746}
-  - component: {fileID: 7651062823651025119}
+  - component: {fileID: 2139571705998596767}
+  - component: {fileID: 261544251669492505}
   m_Layer: 0
-  m_Name: Missile
+  m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5089008337290792746
+--- !u!4 &2139571705998596767
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4893974077037638549}
+  m_GameObject: {fileID: 386923924522421098}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.000011458991, w: 1}
-  m_LocalPosition: {x: 0.01999998, y: 0.13, z: 0}
-  m_LocalScale: {x: 2.4598155, y: 2.999775, z: 2.999775}
+  m_LocalRotation: {x: -0, y: -0, z: -0.99990755, w: -0.013603203}
+  m_LocalPosition: {x: 0.1, y: 0.9, z: 1}
+  m_LocalScale: {x: 2.40813, y: 2.4504845, z: 1.8415}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 776557269324464531}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -719.999}
---- !u!212 &7651062823651025119
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -181.559}
+--- !u!212 &261544251669492505
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4893974077037638549}
+  m_GameObject: {fileID: 386923924522421098}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -79,14 +79,14 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -3961948875967130905, guid: 4dffebd13fd58ef4fbc07665d079b9d8, type: 3}
+  m_Sprite: {fileID: 7418182766618177234, guid: a739977e784deb345abc48eb8bc222c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 1
+  m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.08, y: 0.08}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -101,9 +101,9 @@ GameObject:
   m_Component:
   - component: {fileID: 776557269324464531}
   - component: {fileID: 5130028822533103332}
-  - component: {fileID: 359209268117964091}
+  - component: {fileID: 1423719143078733058}
   m_Layer: 0
-  m_Name: Sniper
+  m_Name: MachineGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,7 +123,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1213620614858876804}
-  - {fileID: 5089008337290792746}
+  - {fileID: 2139571705998596767}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &5130028822533103332
@@ -162,7 +162,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 8.29
---- !u!114 &359209268117964091
+--- !u!114 &1423719143078733058
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,17 +171,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 6446697774057361673}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64419bce75b0e1642a5e1ebc2aba9f5e, type: 3}
+  m_Script: {fileID: 11500000, guid: 94c0568462ef17a4a970ef6c79d29de6, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Sniper
+  m_EditorClassIdentifier: Assembly-CSharp::Burst
   enemyObject: {fileID: 6446697774057361673}
-  bullet: {fileID: 4893974077037638549}
+  bullet: {fileID: 679989125869626422, guid: 9ea14396d924d7345b43d62e760e1221, type: 3}
   cooldown: 3
-  numberOfShots: 1
+  numberOfShots: 3
   rb: {fileID: 0}
   body: {fileID: 6522719694558689593}
-  lead: {fileID: 4893974077037638549}
-  missile: {fileID: 4893974077037638549}
+  lead: {fileID: 6446697774057361673}
+  arm: {fileID: 386923924522421098}
 --- !u!1 &6522719694558689593
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,8 +208,8 @@ Transform:
   m_GameObject: {fileID: 6522719694558689593}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.3522136, y: 2.3411136, z: 2.0182014}
+  m_LocalPosition: {x: 0.02, y: 0, z: -1.07}
+  m_LocalScale: {x: 1.8485217, y: 1.8485217, z: 1.8485217}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 776557269324464531}
@@ -263,12 +263,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 5301123591151991461, guid: 8076ed2999165574aa7a377f578862a5, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -8146345920647918158, guid: 717b3067d740cce4b84e07d2322089fa, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.11, y: 1}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

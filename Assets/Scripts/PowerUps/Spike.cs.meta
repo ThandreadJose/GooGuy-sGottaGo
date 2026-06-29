@@ -1,2 +1,13 @@
 fileFormatVersion: 2
 guid: 8cadf48f2a72ea642b1ddec372442936
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - powerUpController: {instanceID: 0}
+  - goPrefab: {fileID: 5389209055997801863, guid: 43fbe9dc2f8a1544aa186fb7644d4b84, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

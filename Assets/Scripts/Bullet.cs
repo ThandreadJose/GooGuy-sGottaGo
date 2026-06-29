@@ -48,7 +48,7 @@ public class Bullet : MonoBehaviour
         {
             spriteStep += 1;
             timer = 0.1f;
-            if (spriteStep > sprites.Length)
+            if (spriteStep > sprites.Length - 1)
             {
                 spriteStep = 0;
             }

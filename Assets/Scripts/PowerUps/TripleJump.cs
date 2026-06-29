@@ -1,16 +1,20 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
-
-public class TripleJump : MonoBehaviour
+public class TripleJump : Power
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    public override void InitializePower()
     {
-        
+        base.InitializePower();
+        maxJumps = 5;
+        force = 100;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void PowerUp()
     {
-        
+        Debug.Log("max jumps");
+        state = "DONE";
     }
+
 }

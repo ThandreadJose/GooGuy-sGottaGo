@@ -11,6 +11,7 @@ public class Character : MonoBehaviour
 
     public Rigidbody2D rigidbodyModule;
     public GameManager gameManager;
+    public PowerUpController powerUpController;
 
     public GameObject bigBack;
     public GameObject bigFront;
@@ -28,23 +29,25 @@ public class Character : MonoBehaviour
 
     public Sprite frontNormal;
     public Sprite backNormal;
-    
+
+    public bool airborne;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 
     }
 
-    public void jumping(bool airborne)
+    public void jumping(bool jumped)
     {
-        if (airborne)
+        if (jumped)
         {
+            airborne = false;
             frontSprite.sprite = frontNormal;
             backSprite.sprite = backNormal;
         }
         else
         {
-
+            airborne = true;
             frontSprite.sprite = frontJump;
             backSprite.sprite = backJump;
 
@@ -73,6 +76,7 @@ public class Character : MonoBehaviour
         {
             //Make a coin/boost
             gameManager.GetCoin();
+
         }
 
         if (other.CompareTag("Checkpoint"))

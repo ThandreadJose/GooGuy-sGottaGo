@@ -1,17 +1,12 @@
 using UnityEngine;
+using UnityEngine.InputSystem.Users;
+using System;
 
-public class BasePU 
+public class BasePU : Power
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    //public override void updateStats()
-    //{
-    //    gameManager.maxJumps = 1;
-    //    gameManager.force = 100;
-    //    Debug.Log("base stats");
-    //}
-    // Update is called once per frame
-    void Update()
+    public override void PowerUp()
     {
-        
+        Debug.Log("omg wowza");
+        state = "DONE";
     }
 }

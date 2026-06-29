@@ -90,13 +90,6 @@ public class GameManager : MonoBehaviour
 
     }
 
-    //public void ChangePower(PowerUp power)
-    //{
-    //    activePU.newState("DEACTIVE");
-    //    activePU = power;
-    //    activePU.Activate();
-    //}
-
     public void RespawnPlayer()
     {
         //Once checkpoints are added, work on adding the players respawn in this function, since this will reset all of what comes with the level if ever I get to that point.
@@ -320,6 +313,12 @@ public class GameManager : MonoBehaviour
                 }
 
 
+            } else
+            {
+                if (hit)
+                {
+                    rigidbodyModule.AddForce((mousePosition - (Vector2)playerCharacter.transform.position) * force);
+                }
             }
 
         }
